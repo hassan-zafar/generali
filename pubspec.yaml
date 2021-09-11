@@ -11,6 +11,10 @@ dependencies:
     sdk: flutter
   cupertino_icons: ^1.0.2
   lint: ^1.5.3
+  shared_preferences: ^2.0.6
+  http: ^0.13.3
+  json_annotation: ^1.2.0
+  flutter_dotenv: ^5.0.2
 
 dev_dependencies:
   flutter_test:

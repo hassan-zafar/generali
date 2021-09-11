@@ -2,7 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:generali/screens/login/login.dart';
 import 'package:generali/utilities/custom_colors.dart';
 
-void main() {
+// ignore: avoid_void_async
+void main() async{
   runApp(MyApp());
 }
 

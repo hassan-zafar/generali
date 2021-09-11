@@ -1,10 +1,9 @@
 import 'package:flutter/material.dart';
-import 'package:generali/screens/home/main_screen.dart';
 import 'package:generali/screens/login/login.dart';
+import 'package:generali/screens/main_scren/main_screen.dart';
 import 'package:generali/utilities/custom_colors.dart';
 
-// ignore: avoid_void_async
-void main() async{
+Future<void> main() async {
   runApp(MyApp());
 }
 
@@ -15,7 +14,7 @@ class MyApp extends StatelessWidget {
       title: 'Generali',
       theme: ThemeData(
         primaryColor: CustomColors.red,
-        iconTheme: IconThemeData(color: Colors.white),
+        iconTheme: const IconThemeData(color: Colors.white),
         colorScheme: ColorScheme(
           primary: CustomColors.red,
           primaryVariant: Colors.red,

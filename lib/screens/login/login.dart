@@ -1,11 +1,12 @@
 import 'package:flutter/material.dart';
+import 'package:generali/Api/auth.dart';
 import 'package:generali/Api/courses.dart';
 import 'package:generali/screens/widgets/custom_colored_button.dart';
 import 'package:generali/screens/widgets/custom_textformfield.dart';
 import 'package:generali/utilities/custom_colors.dart';
 import 'package:generali/utilities/custom_images.dart';
 import 'package:generali/utilities/utilities.dart';
-import 'package:generali/Api/auth.dart';
+
 class Login extends StatefulWidget {
   const Login({Key? key}) : super(key: key);
   static const String routeName = '/Login';
@@ -16,12 +17,14 @@ class Login extends StatefulWidget {
 class _LoginState extends State<Login> {
   final TextEditingController dni = TextEditingController();
   final TextEditingController password = TextEditingController();
-  void callLoginApi (){
-    authPost(dni.text,password.text);
+  void callLoginApi() {
+    authPost(dni.text, password.text);
   }
-  void callCourseApi (){
+
+  void callCourseApi() {
     getCourses(10000, 0);
   }
+
   @override
   Widget build(BuildContext context) {
     final Size size = MediaQuery.of(context).size;
@@ -56,8 +59,8 @@ class _LoginState extends State<Login> {
               keyboardType: TextInputType.visiblePassword,
             ),
             CustomColoredButton(
-              onTap: () {},
-              child: Text(  
+              onTap: callLoginApi,
+              child: Text(
                 'Enter',
                 style: TextStyle(
                   fontSize: 28,

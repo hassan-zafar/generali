@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:generali/screens/home/pages/home/home.dart';
+
 import 'bottom_navigation_bar_widget.dart';
+import 'pages/home/home.dart';
 
 class MainScreen extends StatefulWidget {
   const MainScreen({Key? key}) : super(key: key);

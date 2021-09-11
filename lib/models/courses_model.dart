@@ -1,22 +1,32 @@
 class CourseModel {
-   List<dynamic>  content;
-   // ignore: always_specify_types
-   dynamic pageable = {};
-   dynamic totalElements;
-   // ignore: unnecessary_question_mark
-   dynamic last;
-   dynamic totalPages;
-   dynamic first;
-   dynamic sort = {};
-   dynamic numberOfElements;
-   dynamic size;
-   dynamic number;
-   dynamic empty;
-  // ignore: sort_constructors_first
-  CourseModel({required this.content,required this.totalElements,this.last,this.totalPages,this.first,required this.sort,this.numberOfElements,this.size,this.number,this.empty,required this.pageable});
+  CourseModel({
+    required this.content,
+    required this.totalElements,
+    this.last,
+    this.totalPages,
+    this.first,
+    required this.sort,
+    this.numberOfElements,
+    this.size,
+    this.number,
+    this.empty,
+    required this.pageable,
+  });
+
+  List<dynamic> content;
+  dynamic pageable = {};
+  dynamic totalElements;
+  dynamic last;
+  dynamic totalPages;
+  dynamic first;
+  dynamic sort = {};
+  dynamic numberOfElements;
+  dynamic size;
+  dynamic number;
+  dynamic empty;
 
   Map<String, dynamic> toMap() {
-    return {
+    return <String, dynamic>{
       'content': content.map((x) => x.toMap()).toList(),
       'totalElements': totalElements,
       'last': last,
@@ -32,7 +42,7 @@ class CourseModel {
   // ignore: sort_constructors_first
   factory CourseModel.fromJson(map) {
     return CourseModel(
-      content: List<dynamic> .from(map['content'] as List<dynamic>),
+      content: List<dynamic>.from(map['content'] as List<dynamic>),
       totalElements: map['totalElements'],
       last: map['last'],
       totalPages: map['totalPages'],
@@ -43,8 +53,6 @@ class CourseModel {
       empty: map['empty'],
       pageable: map['pageable'],
       sort: map['sort'],
-
     );
   }
-
 }

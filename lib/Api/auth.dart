@@ -21,8 +21,10 @@ Future<LoginModel> authPost(String dni,String password) async {
   );
      // ignore: always_specify_types
      final decodeData = json.decode(response.body);
- if (decodeData['token'].toString() != '') {
-      sharedData.addStringToSF('token', decodeData['token'].toString());
-    }
+     globals.token=decodeData['token'].toString();
+           sharedData.addStringToSF('token', decodeData['token'].toString());  
+//  if (decodeData['token'].toString() != '') {
+//       sharedData.addStringToSF('token', decodeData['token'].toString());
+//     }
   return LoginModel.fromJson(jsonDecode(response.body));
 }

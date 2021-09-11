@@ -7,7 +7,8 @@ import '../utilities/shared_pref.dart' as sharedData;
 
 Future<CourseModel> getCourses(int _limit,int _page) async {
   // ignore: always_specify_types
-  final token = sharedData.getStringValuesSF('token');
+  final token = sharedData.getStringValuesSF('token').toString();
+  var data =token;
   final String url = '${globals.v2_url}my-courses?_limit=$_limit&_page=$_page';
   @override
     final http.Response response = await http.get(
@@ -15,7 +16,7 @@ Future<CourseModel> getCourses(int _limit,int _page) async {
      // ignore: always_specify_types
      headers: {
         'Content-Type': 'application/json',
-        'Authorization': 'Bearer $token'
+        'Authorization': 'Bearer ${globals.token}'
       },
   );
   return CourseModel.fromJson(jsonDecode(response.body));

@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:generali/Api/courses.dart';
 import 'package:generali/screens/widgets/custom_colored_button.dart';
 import 'package:generali/screens/widgets/custom_textformfield.dart';
 import 'package:generali/utilities/custom_colors.dart';
@@ -17,6 +18,9 @@ class _LoginState extends State<Login> {
   final TextEditingController password = TextEditingController();
   void callLoginApi (){
     authPost(dni.text,password.text);
+  }
+  void callCourseApi (){
+    getCourses(10000, 0);
   }
   @override
   Widget build(BuildContext context) {
@@ -55,6 +59,16 @@ class _LoginState extends State<Login> {
               onTap: callLoginApi,
               child: Text(
                 'Login',
+                style: TextStyle(
+                  fontSize: 28,
+                  color: Theme.of(context).colorScheme.primary,
+                ),
+              ),
+            ),
+            CustomColoredButton(
+              onTap: callCourseApi,
+              child: Text(
+                'Call Course',
                 style: TextStyle(
                   fontSize: 28,
                   color: Theme.of(context).colorScheme.primary,

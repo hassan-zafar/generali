@@ -56,19 +56,9 @@ class _LoginState extends State<Login> {
               keyboardType: TextInputType.visiblePassword,
             ),
             CustomColoredButton(
-              onTap: callLoginApi,
-              child: Text(
-                'Login',
-                style: TextStyle(
-                  fontSize: 28,
-                  color: Theme.of(context).colorScheme.primary,
-                ),
-              ),
-            ),
-            CustomColoredButton(
-              onTap: callCourseApi,
-              child: Text(
-                'Call Course',
+              onTap: () {},
+              child: Text(  
+                'Enter',
                 style: TextStyle(
                   fontSize: 28,
                   color: Theme.of(context).colorScheme.primary,

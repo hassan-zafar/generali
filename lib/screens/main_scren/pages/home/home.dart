@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:generali/screens/widgets/custom_appbar_background.dart';
 import 'package:generali/screens/widgets/custom_circular_profile_image.dart';
+import 'package:generali/screens/widgets/search_textformfield.dart';
 import 'package:generali/utilities/custom_images.dart';
 import 'package:generali/utilities/utilities.dart';
 
@@ -12,6 +13,7 @@ class Home extends StatefulWidget {
 }
 
 class _HomeState extends State<Home> {
+  final TextEditingController _search = TextEditingController();
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -41,8 +43,16 @@ class _HomeState extends State<Home> {
         ),
         body: Column(
           children: <Widget>[
-            const CustomAppBarBackbround(),
-            Container(),
+            Stack(
+              children: <Widget>[
+                const CustomAppBarBackbround(),
+                SearchTextFormField(
+                  search: _search,
+                  onTap: () {},
+                ),
+                Container(),
+              ],
+            ),
           ],
         ));
   }

@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 class CustomAppBarBackbround extends StatelessWidget {
   const CustomAppBarBackbround({
     this.backgroundColor = const Color(0xFFC5281B),
-    this.height = 110,
+    this.height = 130,
     Key? key,
   }) : super(key: key);
   final Color backgroundColor;

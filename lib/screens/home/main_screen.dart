@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:generali/screens/home/pages/home/home.dart';
 import 'bottom_navigation_bar_widget.dart';
 
 class MainScreen extends StatefulWidget {
@@ -17,7 +18,7 @@ class _MainScreenState extends State<MainScreen> {
   }
 
   static final List<Widget> _widgetOptions = <Widget>[
-    const Center(child: Text('Page 1')),
+    const Home(),
     const Center(child: Text('Page 2')),
     const Center(child: Text('Page 3')),
   ];
@@ -26,9 +27,7 @@ class _MainScreenState extends State<MainScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       bottomNavigationBar: BottomNavigationBarWidget(onTab: _onItemTapped),
-      body: Center(
-        child: _widgetOptions.elementAt(_selectedIndex),
-      ),
+      body: _widgetOptions.elementAt(_selectedIndex),
     );
   }
 }

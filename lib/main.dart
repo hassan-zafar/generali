@@ -14,7 +14,7 @@ class MyApp extends StatelessWidget {
       title: 'Generali',
       theme: ThemeData(
         primaryColor: CustomColors.red,
-        iconTheme: IconThemeData(color: CustomColors.lightGrey),
+        iconTheme: IconThemeData(color: Colors.white),
         colorScheme: ColorScheme(
           primary: CustomColors.red,
           primaryVariant: Colors.red,

@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:generali/utilities/custom_colors.dart';
 
 class BottomNavigationBarWidget extends StatefulWidget {
   const BottomNavigationBarWidget({
@@ -23,7 +24,7 @@ class _BottomNavigationBarWidgetState extends State<BottomNavigationBarWidget> {
     }
 
     return BottomNavigationBar(
-      unselectedItemColor: Theme.of(context).iconTheme.color,
+      unselectedItemColor: CustomColors.lightGrey,
       selectedItemColor: Theme.of(context).primaryColor,
       showUnselectedLabels: true,
       onTap: (int value) => _onItemTapped(value),

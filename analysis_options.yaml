@@ -7,3 +7,4 @@ linter:
     always_specify_types: true
     sort_constructors_first: true
     prefer_single_quotes: true
+    argument_type_not_assignable: false

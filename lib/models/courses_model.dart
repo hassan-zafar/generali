@@ -1,7 +1,6 @@
-import 'dart:convert';
-
-class Courses {
+class CourseModel {
    List<dynamic>  content;
+   // ignore: always_specify_types
    dynamic pageable = {};
    dynamic totalElements;
    // ignore: unnecessary_question_mark
@@ -13,7 +12,8 @@ class Courses {
    dynamic size;
    dynamic number;
    dynamic empty;
-  Courses({required this.content,required this.totalElements,this.last,this.totalPages,this.first,required this.sort,this.numberOfElements,this.size,this.number,this.empty,required this.pageable});
+  // ignore: sort_constructors_first
+  CourseModel({required this.content,required this.totalElements,this.last,this.totalPages,this.first,required this.sort,this.numberOfElements,this.size,this.number,this.empty,required this.pageable});
 
   Map<String, dynamic> toMap() {
     return {
@@ -29,8 +29,9 @@ class Courses {
     };
   }
 
-  factory Courses.fromJson(Map<String, dynamic> map) {
-    return Courses(
+  // ignore: sort_constructors_first
+  factory CourseModel.fromJson(map) {
+    return CourseModel(
       content: List<dynamic> .from(map['content'] as List<dynamic>),
       totalElements: map['totalElements'],
       last: map['last'],

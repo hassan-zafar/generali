@@ -1,28 +1,22 @@
 import 'dart:convert';
+import 'package:generali/models/courses_model.dart';
 import 'package:http/http.dart' as http;
-import '../models/login_model.dart';
 import '../utilities/global_variable.dart' as globals;
 // ignore: library_prefixes
 import '../utilities/shared_pref.dart' as sharedData;
 
-Future<LoginModel> authPost(String dni,String password) async {
-  final Map<String, String> object={
-    'dni':dni,
-    'password':password
-  };
-  final String url = '${globals.auth_url}authenticate';
+Future<CourseModel> getCourses(int _limit,int _page) async {
+  // ignore: always_specify_types
+  final token = sharedData.getStringValuesSF('token');
+  final String url = '${globals.v2_url}my-courses?_limit=$_limit&_page=$_page';
   @override
-    final http.Response response = await http.post(
+    final http.Response response = await http.get(
     Uri.parse(url),
+     // ignore: always_specify_types
      headers: {
         'Content-Type': 'application/json',
+        'Authorization': 'Bearer $token'
       },
-    body:jsonEncode(object),
   );
-     // ignore: always_specify_types
-     final decodeData = json.decode(response.body);
- if (decodeData['token'].toString() != '') {
-      sharedData.addStringToSF('token', decodeData['token'].toString());
-    }
-  return LoginModel.fromJson(jsonDecode(response.body));
+  return CourseModel.fromJson(jsonDecode(response.body));
 }

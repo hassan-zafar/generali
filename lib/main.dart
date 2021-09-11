@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:generali/screens/home/home.dart';
 import 'package:generali/screens/login/login.dart';
 import 'package:generali/utilities/custom_colors.dart';
 
@@ -10,8 +11,10 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: 'Flutter Demo',
+      title: 'Generali',
       theme: ThemeData(
+        primaryColor: CustomColors.red,
+        iconTheme: IconThemeData(color: CustomColors.lightGrey),
         colorScheme: ColorScheme(
           primary: CustomColors.red,
           primaryVariant: Colors.red,
@@ -28,9 +31,10 @@ class MyApp extends StatelessWidget {
           brightness: Brightness.light,
         ),
       ),
-      home: Login(),
+      home: const Login(),
       routes: <String, WidgetBuilder>{
-        Login.routeName: (_) => Login(),
+        Login.routeName: (_) => const Login(),
+        Home.routeName: (_) => const Home(),
       },
     );
   }

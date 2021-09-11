@@ -50,7 +50,7 @@ class _LoginState extends State<Login> {
             ),
             CustomColoredButton(
               onTap: () {},
-              child: Text(
+              child: Text(  
                 'Enter',
                 style: TextStyle(
                   fontSize: 28,

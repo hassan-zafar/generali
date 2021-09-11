@@ -1,14 +1,14 @@
 import 'package:flutter/material.dart';
 import 'bottom_navigation_bar_widget.dart';
 
-class Home extends StatefulWidget {
-  const Home({Key? key}) : super(key: key);
-  static const String routeName = '/Home';
+class MainScreen extends StatefulWidget {
+  const MainScreen({Key? key}) : super(key: key);
+  static const String routeName = '/MainScreen';
   @override
-  _HomeState createState() => _HomeState();
+  _MainScreenState createState() => _MainScreenState();
 }
 
-class _HomeState extends State<Home> {
+class _MainScreenState extends State<MainScreen> {
   int _selectedIndex = 0;
   void _onItemTapped(int index) {
     setState(() {
@@ -20,7 +20,6 @@ class _HomeState extends State<Home> {
     const Center(child: Text('Page 1')),
     const Center(child: Text('Page 2')),
     const Center(child: Text('Page 3')),
-    // const Center(child: Text('Page 4')),
   ];
 
   @override

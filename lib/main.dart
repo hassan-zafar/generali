@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:generali/screens/home/home.dart';
+import 'package:generali/screens/home/main_screen.dart';
 import 'package:generali/screens/login/login.dart';
 import 'package:generali/utilities/custom_colors.dart';
 
@@ -31,10 +31,10 @@ class MyApp extends StatelessWidget {
           brightness: Brightness.light,
         ),
       ),
-      home: const Login(),
+      home: const MainScreen(),
       routes: <String, WidgetBuilder>{
         Login.routeName: (_) => const Login(),
-        Home.routeName: (_) => const Home(),
+        MainScreen.routeName: (_) => const MainScreen(),
       },
     );
   }

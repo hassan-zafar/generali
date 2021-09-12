@@ -12,7 +12,12 @@ dependencies:
 
   cupertino_icons: ^1.0.3
   lint: ^1.5.3
+
+  carousel_slider: ^4.0.0
+  sleek_circular_slider: ^2.0.1
+
   shared_preferences: ^2.0.7
+
   http: ^0.13.3
   json_annotation: ^1.2.0
   flutter_dotenv: ^5.0.2

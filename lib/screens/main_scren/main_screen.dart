@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:generali/screens/main_scren/pages/aprenda/aprenda.dart';
+import 'package:generali/screens/main_scren/pages/regenrate/regenrate.dart';
 import 'package:generali/screens/widgets/custom_circular_profile_image.dart';
 import 'package:generali/utilities/custom_images.dart';
 import 'package:generali/utilities/utilities.dart';
@@ -23,8 +25,8 @@ class _MainScreenState extends State<MainScreen> {
 
   static final List<Widget> _widgetOptions = <Widget>[
     const Home(),
-    const Center(child: Text('Page 2')),
-    const Center(child: Text('Page 3')),
+    const Aprenda(),
+    const Regenrate(),
   ];
 
   @override
@@ -60,6 +62,10 @@ class _MainScreenState extends State<MainScreen> {
       ),
       bottomNavigationBar: BottomNavigationBarWidget(onTab: _onItemTapped),
       body: _widgetOptions.elementAt(_selectedIndex),
+      floatingActionButton: FloatingActionButton(
+        onPressed: () {},
+        child: const Icon(Icons.chat_outlined, color: Colors.white),
+      ),
     );
   }
 }

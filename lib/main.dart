@@ -24,6 +24,7 @@ class MyApp extends StatelessWidget {
         theme: ThemeData(
           primaryColor: CustomColors.red,
           iconTheme: const IconThemeData(color: Colors.white),
+          splashColor: Colors.redAccent,
           colorScheme: ColorScheme(
             primary: CustomColors.red,
             primaryVariant: Colors.red,
@@ -40,7 +41,7 @@ class MyApp extends StatelessWidget {
             brightness: Brightness.light,
           ),
         ),
-        home: const MainScreen(),
+        home: const Login(),
         routes: <String, WidgetBuilder>{
           Login.routeName: (_) => const Login(),
           MainScreen.routeName: (_) => const MainScreen(),

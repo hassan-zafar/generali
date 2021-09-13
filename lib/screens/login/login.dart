@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:generali/api/auth_api.dart';
 import 'package:generali/screens/widgets/custom_colored_button.dart';
 import 'package:generali/screens/widgets/custom_textformfield.dart';
 import 'package:generali/utilities/custom_colors.dart';
@@ -49,7 +50,9 @@ class _LoginState extends State<Login> {
               keyboardType: TextInputType.visiblePassword,
             ),
             CustomColoredButton(
-              onTap: () {},
+              onTap: () async {
+                await AuthAPI.auth(dni: '77777777B', password: '77777777B');
+              },
               child: Text(
                 'Enter',
                 style: TextStyle(

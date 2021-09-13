@@ -31,7 +31,7 @@ class MyApp extends StatelessWidget {
           brightness: Brightness.light,
         ),
       ),
-      home: const MainScreen(),
+      home: const Login(),
       routes: <String, WidgetBuilder>{
         Login.routeName: (_) => const Login(),
         MainScreen.routeName: (_) => const MainScreen(),

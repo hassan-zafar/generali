@@ -3,7 +3,6 @@ import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 import 'package:generali/providers/home_slider_provider.dart';
 import 'package:generali/screens/widgets/custom_appbar_background.dart';
-import 'package:generali/screens/widgets/custom_circular_profile_image.dart';
 import 'package:generali/screens/widgets/search_textformfield.dart';
 import 'package:generali/utilities/custom_images.dart';
 import 'package:generali/utilities/utilities.dart';
@@ -21,76 +20,46 @@ class _HomeState extends State<Home> {
   final TextEditingController _search = TextEditingController();
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(
-        elevation: 0,
-        title: SizedBox(width: 120, child: Image.asset(CustomImages.logo)),
-        centerTitle: false,
-        actions: <Widget>[
-          GestureDetector(
-            onTap: () {
-              // TODO: on Tutor Icon click
-            },
-            child: SizedBox(
-              width: 30,
-              child: Image.asset(CustomImages.tutorIconWhite),
+    return Column(
+      children: <Widget>[
+        Stack(
+          children: <Widget>[
+            const CustomAppBarBackbround(),
+            SearchTextFormField(
+              search: _search,
+              onTap: () {
+                // TODO: on search
+              },
             ),
-          ),
-          IconButton(
-            onPressed: () {
-              // TODO: on notification button press
-            },
-            icon: Icon(
-              Icons.notifications,
-              size: 28,
-              color: Theme.of(context).iconTheme.color,
-            ),
-          ),
-          const CustomCircularProfileImage(imageURL: ''),
-          SizedBox(width: Utilities.padding),
-        ],
-      ),
-      body: Column(
-        children: <Widget>[
-          Stack(
-            children: <Widget>[
-              const CustomAppBarBackbround(),
-              SearchTextFormField(
-                search: _search,
-                onTap: () {
-                  // TODO: on search
-                },
-              ),
-              Consumer<HomeSliderProvider>(
-                builder: (
-                  BuildContext context,
-                  HomeSliderProvider provider,
-                  Widget? child,
-                ) =>
-                    Positioned(
-                  top: 80,
-                  left: 0,
-                  right: 0,
-                  child: CarouselSlider(
-                    // ignore: always_specify_types
-                    items: [
-                      _firstcategory(provider),
-                      _secondCategory(provider),
-                      _thirdCategory(provider)
-                    ].map((HomeCategoiesCardWidget card) => card).toList(),
-                    options: CarouselOptions(
-                      height: 180.0,
-                      disableCenter: true,
-                      enlargeCenterPage: true,
-                      enableInfiniteScroll: false,
-                    ),
+            Consumer<HomeSliderProvider>(
+              builder: (
+                BuildContext context,
+                HomeSliderProvider provider,
+                Widget? child,
+              ) =>
+                  Positioned(
+                top: 80,
+                left: 0,
+                right: 0,
+                child: CarouselSlider(
+                  // ignore: always_specify_types
+                  items: [
+                    _firstcategory(provider),
+                    _secondCategory(provider),
+                    _thirdCategory(provider)
+                  ].map((HomeCategoiesCardWidget card) => card).toList(),
+                  options: CarouselOptions(
+                    height: 180.0,
+                    disableCenter: true,
+                    enlargeCenterPage: true,
+                    enableInfiniteScroll: false,
                   ),
                 ),
               ),
-            ],
-          ),
-        ],
-      ),
+            ),
+          ],
+        ),
+      ],
     );
   }
 

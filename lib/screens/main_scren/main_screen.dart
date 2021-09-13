@@ -1,4 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:generali/screens/widgets/custom_circular_profile_image.dart';
+import 'package:generali/utilities/custom_images.dart';
+import 'package:generali/utilities/utilities.dart';
 
 import 'bottom_navigation_bar_widget.dart';
 import 'pages/home/home.dart';
@@ -27,6 +30,34 @@ class _MainScreenState extends State<MainScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      appBar: AppBar(
+        elevation: 0,
+        title: SizedBox(width: 120, child: Image.asset(CustomImages.logo)),
+        centerTitle: false,
+        actions: <Widget>[
+          GestureDetector(
+            onTap: () {
+              // TODO: on Tutor Icon click
+            },
+            child: SizedBox(
+              width: 30,
+              child: Image.asset(CustomImages.tutorIconWhite),
+            ),
+          ),
+          IconButton(
+            onPressed: () {
+              // TODO: on notification button press
+            },
+            icon: Icon(
+              Icons.notifications,
+              size: 28,
+              color: Theme.of(context).iconTheme.color,
+            ),
+          ),
+          const CustomCircularProfileImage(imageURL: ''),
+          SizedBox(width: Utilities.padding),
+        ],
+      ),
       bottomNavigationBar: BottomNavigationBarWidget(onTab: _onItemTapped),
       body: _widgetOptions.elementAt(_selectedIndex),
     );

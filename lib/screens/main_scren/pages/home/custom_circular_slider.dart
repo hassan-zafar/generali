@@ -18,7 +18,7 @@ class CustomCircularSlider extends StatelessWidget {
       children: <Widget>[
         SleekCircularSlider(
           appearance: CircularSliderAppearance(
-            size: 84,
+            size: 80,
             startAngle: -90,
             angleRange: 360,
             customWidths: CustomSliderWidths(

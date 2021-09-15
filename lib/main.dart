@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:generali/providers/home_slider_provider.dart';
+import 'package:generali/screens/chat_bot/chat_bot.dart';
 import 'package:generali/screens/login/login.dart';
 import 'package:generali/screens/main_scren/main_screen.dart';
 import 'package:generali/utilities/custom_colors.dart';
@@ -41,10 +42,11 @@ class MyApp extends StatelessWidget {
             brightness: Brightness.light,
           ),
         ),
-        home: const MainScreen(),
+        home: const ChatBot(),
         routes: <String, WidgetBuilder>{
           Login.routeName: (_) => const Login(),
           MainScreen.routeName: (_) => const MainScreen(),
+          ChatBot.routeName: (_) => const ChatBot(),
         },
       ),
     );

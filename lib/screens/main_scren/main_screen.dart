@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:generali/screens/chat_bot/chat_bot.dart';
 import 'package:generali/screens/main_scren/pages/aprenda/aprenda.dart';
 import 'package:generali/screens/main_scren/pages/regenrate/regenrate.dart';
 import 'package:generali/screens/widgets/custom_circular_profile_image.dart';
@@ -63,7 +64,9 @@ class _MainScreenState extends State<MainScreen> {
       bottomNavigationBar: BottomNavigationBarWidget(onTab: _onItemTapped),
       body: _widgetOptions.elementAt(_selectedIndex),
       floatingActionButton: FloatingActionButton(
-        onPressed: () {},
+        onPressed: () {
+          Navigator.of(context).pushNamed(ChatBot.routeName);
+        },
         child: const Icon(Icons.chat_outlined, color: Colors.white),
       ),
     );

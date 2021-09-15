@@ -37,6 +37,7 @@ class Aprenda extends StatelessWidget {
                       detail: 'This is the detail of all the courses',
                       viewed: double.parse(index.toString()),
                       thumbnailURL: '',
+                      // ignore: avoid_bool_literals_in_conditional_expressions
                       isFav: (index % 3 == 0) ? true : false,
                     ),
                   ),

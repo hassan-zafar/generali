@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:generali/api/auth_api.dart';
 import 'package:generali/screens/main_scren/main_screen.dart';
 import 'package:generali/screens/widgets/custom_colored_button.dart';
 import 'package:generali/screens/widgets/custom_textformfield.dart';

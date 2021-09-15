@@ -1,7 +1,11 @@
 import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/painting.dart';
 import 'package:flutter/widgets.dart';
+import 'package:generali/model/news.dart';
 import 'package:generali/providers/home_slider_provider.dart';
+import 'package:generali/screens/main_scren/pages/home/new_card_widget.dart';
+import 'package:generali/screens/main_scren/pages/regenrate/fake_news.dart';
 import 'package:generali/screens/widgets/custom_appbar_background.dart';
 import 'package:generali/screens/widgets/search_textformfield.dart';
 import 'package:generali/utilities/custom_images.dart';
@@ -20,7 +24,9 @@ class _HomeState extends State<Home> {
   final TextEditingController _search = TextEditingController();
   @override
   Widget build(BuildContext context) {
+    final Size _size = MediaQuery.of(context).size;
     return Column(
+      mainAxisSize: MainAxisSize.min,
       children: <Widget>[
         Stack(
           children: <Widget>[
@@ -39,7 +45,7 @@ class _HomeState extends State<Home> {
               ) =>
                   Positioned(
                 top: 80,
-                left: 0,
+                left: Utilities.padding,
                 right: 0,
                 child: CarouselSlider(
                   // ignore: always_specify_types
@@ -49,7 +55,7 @@ class _HomeState extends State<Home> {
                     _thirdCategory(provider)
                   ].map((HomeCategoiesCardWidget card) => card).toList(),
                   options: CarouselOptions(
-                    height: 180.0,
+                    height: 190.0,
                     disableCenter: true,
                     enlargeCenterPage: true,
                     enableInfiniteScroll: false,
@@ -58,6 +64,31 @@ class _HomeState extends State<Home> {
               ),
             ),
           ],
+        ),
+        Padding(
+          padding: EdgeInsets.only(left: Utilities.padding),
+          child: Column(
+            children: <Widget>[
+              _TitalAndActionButtonWidget(
+                title: 'News',
+                onPress: () {},
+              ),
+              // NewsCardWidget(size: _size),
+              SizedBox(
+                height: _size.width / 2.4,
+                child: ListView.builder(
+                  itemCount: 4,
+                  scrollDirection: Axis.horizontal,
+                  itemBuilder: (BuildContext context, int index) {
+                    return NewsCardWidget(
+                      size: _size,
+                      news: fackNewsData()[index],
+                    );
+                  },
+                ),
+              ),
+            ],
+          ),
         ),
       ],
     );
@@ -209,6 +240,41 @@ class _HomeState extends State<Home> {
           ),
         ],
       ),
+    );
+  }
+}
+
+class _TitalAndActionButtonWidget extends StatelessWidget {
+  const _TitalAndActionButtonWidget({
+    required this.title,
+    required this.onPress,
+    Key? key,
+  }) : super(key: key);
+  final String title;
+
+  final VoidCallback onPress;
+
+  @override
+  Widget build(BuildContext context) {
+    return Row(
+      children: <Widget>[
+        Text(
+          title,
+          style: const TextStyle(fontWeight: FontWeight.bold, fontSize: 18),
+        ),
+        const Spacer(),
+        TextButton(
+          onPressed: onPress,
+          child: Row(
+            children: const <Widget>[
+              Text('View', style: TextStyle(fontSize: 18)),
+              SizedBox(width: 10),
+              Icon(Icons.arrow_forward_ios_rounded, size: 16),
+            ],
+          ),
+        ),
+        const SizedBox(width: 10),
+      ],
     );
   }
 }

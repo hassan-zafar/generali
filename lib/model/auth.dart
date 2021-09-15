@@ -12,8 +12,7 @@ class Auth {
 
   // ignore: sort_constructors_first
   factory Auth.fromJson(Map<String, dynamic> json) => Auth(
-        headers: List<dynamic>.from(
-            json['headers'].map((dynamic x) => x) as List<dynamic>),
+        headers: List<dynamic>.from(json['headers'] as List<dynamic>),
         sessionId: json['sessionId'],
         token: json['token'].toString(),
       );

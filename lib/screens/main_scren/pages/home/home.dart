@@ -27,7 +27,7 @@ class _HomeState extends State<Home> {
   Widget build(BuildContext context) {
     final Size _size = MediaQuery.of(context).size;
     return Column(
-      mainAxisSize: MainAxisSize.min,
+      // mainAxisSize: MainAxisSize.max,
       children: <Widget>[
         Flexible(
           child: Stack(
@@ -71,7 +71,8 @@ class _HomeState extends State<Home> {
         Expanded(
           child: Padding(
             padding: EdgeInsets.only(left: Utilities.padding),
-            child: Column(
+            child: ListView(
+              shrinkWrap: true,
               children: <Widget>[
                 _TitalAndActionButtonWidget(
                   title: 'News',
@@ -80,6 +81,7 @@ class _HomeState extends State<Home> {
                 SizedBox(
                   height: _size.width / 2.4,
                   child: ListView.builder(
+                    shrinkWrap: true,
                     itemCount: 4,
                     scrollDirection: Axis.horizontal,
                     itemBuilder: (BuildContext context, int index) {
@@ -96,6 +98,7 @@ class _HomeState extends State<Home> {
                 ),
                 Expanded(
                   child: ListView.builder(
+                    shrinkWrap: true,
                     padding: EdgeInsets.zero,
                     itemCount: 1000,
                     itemBuilder: (BuildContext context, int index) =>

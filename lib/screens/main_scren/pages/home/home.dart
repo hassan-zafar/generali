@@ -2,8 +2,10 @@ import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/painting.dart';
 import 'package:flutter/widgets.dart';
+import 'package:generali/model/course.dart';
 import 'package:generali/model/news.dart';
 import 'package:generali/providers/home_slider_provider.dart';
+import 'package:generali/screens/main_scren/pages/aprenda/courses_tile_widget.dart';
 import 'package:generali/screens/main_scren/pages/home/new_card_widget.dart';
 import 'package:generali/screens/main_scren/pages/regenrate/fake_news.dart';
 import 'package:generali/screens/widgets/custom_appbar_background.dart';
@@ -28,66 +30,91 @@ class _HomeState extends State<Home> {
     return Column(
       mainAxisSize: MainAxisSize.min,
       children: <Widget>[
-        Stack(
-          children: <Widget>[
-            const CustomAppBarBackbround(),
-            SearchTextFormField(
-              search: _search,
-              onTap: () {
-                // TODO: on search
-              },
-            ),
-            Consumer<HomeSliderProvider>(
-              builder: (
-                BuildContext context,
-                HomeSliderProvider provider,
-                Widget? child,
-              ) =>
-                  Positioned(
-                top: 80,
-                left: Utilities.padding,
-                right: 0,
-                child: CarouselSlider(
-                  // ignore: always_specify_types
-                  items: [
-                    _firstcategory(provider),
-                    _secondCategory(provider),
-                    _thirdCategory(provider)
-                  ].map((HomeCategoiesCardWidget card) => card).toList(),
-                  options: CarouselOptions(
-                    height: 190.0,
-                    disableCenter: true,
-                    enlargeCenterPage: true,
-                    enableInfiniteScroll: false,
+        Flexible(
+          child: Stack(
+            children: <Widget>[
+              const CustomAppBarBackbround(),
+              SearchTextFormField(
+                search: _search,
+                onTap: () {
+                  // TODO: on search
+                },
+              ),
+              Consumer<HomeSliderProvider>(
+                builder: (
+                  BuildContext context,
+                  HomeSliderProvider provider,
+                  Widget? child,
+                ) =>
+                    Positioned(
+                  top: 80,
+                  left: Utilities.padding,
+                  right: 0,
+                  child: CarouselSlider(
+                    // ignore: always_specify_types
+                    items: [
+                      _firstcategory(provider),
+                      _secondCategory(provider),
+                      _thirdCategory(provider)
+                    ].map((HomeCategoiesCardWidget card) => card).toList(),
+                    options: CarouselOptions(
+                      height: 190.0,
+                      disableCenter: true,
+                      enlargeCenterPage: true,
+                      enableInfiniteScroll: false,
+                    ),
                   ),
                 ),
               ),
-            ),
-          ],
-        ),
-        Padding(
-          padding: EdgeInsets.only(left: Utilities.padding),
-          child: Column(
-            children: <Widget>[
-              _TitalAndActionButtonWidget(
-                title: 'News',
-                onPress: () {},
-              ),
-              // NewsCardWidget(size: _size),
-              SizedBox(
-                height: _size.width / 2.4,
-                child: ListView.builder(
-                  itemCount: 4,
-                  scrollDirection: Axis.horizontal,
-                  itemBuilder: (BuildContext context, int index) {
-                    return NewsCardWidget(
-                      size: _size,
-                      news: fackNewsData()[index],
-                    );
-                  },
-                ),
-              ),
             ],
+          ),
+        ),
+        Expanded(
+          child: Padding(
+            padding: EdgeInsets.only(left: Utilities.padding),
+            child: Column(
+              children: <Widget>[
+                _TitalAndActionButtonWidget(
+                  title: 'News',
+                  onPress: () {},
+                ),
+                SizedBox(
+                  height: _size.width / 2.4,
+                  child: ListView.builder(
+                    itemCount: 4,
+                    scrollDirection: Axis.horizontal,
+                    itemBuilder: (BuildContext context, int index) {
+                      return NewsCardWidget(
+                        size: _size,
+                        news: fackNewsData()[index],
+                      );
+                    },
+                  ),
+                ),
+                _TitalAndActionButtonWidget(
+                  title: 'Watching Courses',
+                  onPress: () {},
+                ),
+                Expanded(
+                  child: ListView.builder(
+                    padding: EdgeInsets.zero,
+                    itemCount: 1000,
+                    itemBuilder: (BuildContext context, int index) =>
+                        CoursesTileWidget(
+                      showFavIcon: false,
+                      course: Courses(
+                        id: index.toString(),
+                        title: 'Course No: $index',
+                        detail: 'This is the detail of all the courses',
+                        viewed: double.parse(index.toString()),
+                        thumbnailURL: '',
+                        isFav: (index % 3 == 0) ? true : false,
+                      ),
+                    ),
+                  ),
+                ),
+              ],
+            ),
           ),
         ),
       ],

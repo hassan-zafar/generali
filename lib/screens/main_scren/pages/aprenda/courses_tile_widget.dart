@@ -6,8 +6,13 @@ import 'package:generali/utilities/custom_images.dart';
 import 'package:generali/utilities/utilities.dart';
 
 class CoursesTileWidget extends StatelessWidget {
-  const CoursesTileWidget({required this.course, Key? key}) : super(key: key);
+  const CoursesTileWidget({
+    required this.course,
+    this.showFavIcon = true,
+    Key? key,
+  }) : super(key: key);
   final Courses course;
+  final bool showFavIcon;
 
   @override
   Widget build(BuildContext context) {
@@ -24,8 +29,8 @@ class CoursesTileWidget extends StatelessWidget {
         boxShadow: <BoxShadow>[
           BoxShadow(
             color: Colors.black.withOpacity(0.2),
-            spreadRadius: 4,
-            blurRadius: 9,
+            spreadRadius: 2,
+            blurRadius: 4,
             offset: const Offset(1, 1),
           ),
         ],
@@ -34,13 +39,16 @@ class CoursesTileWidget extends StatelessWidget {
         children: <Widget>[
           _courseImage(),
           _courseInfo(context),
-          IconButton(
-            splashRadius: 10,
-            onPressed: () {},
-            icon: (course.isFav!)
-                ? Icon(Icons.favorite, color: Theme.of(context).primaryColor)
-                : Icon(Icons.favorite, color: CustomColors.lightGrey),
-          ),
+          if (showFavIcon)
+            IconButton(
+              splashRadius: 10,
+              onPressed: () {},
+              icon: (course.isFav!)
+                  ? Icon(Icons.favorite, color: Theme.of(context).primaryColor)
+                  : Icon(Icons.favorite, color: CustomColors.lightGrey),
+            )
+          else
+            const SizedBox(),
           const SizedBox(width: 10),
         ],
       ),

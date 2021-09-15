@@ -12,6 +12,7 @@ dependencies:
 
   cupertino_icons: ^1.0.3
   lint: ^1.5.3
+  flutter_rating_bar: ^4.0.0
 
   carousel_slider: ^4.0.0
   sleek_circular_slider: ^2.0.1

@@ -3,17 +3,32 @@ import 'package:flutter/material.dart';
 class News {
   News({
     this.id,
-    this.thumbnailURL,
+    this.characteristics,
+    this.image,
+    this.modality,
+    this.rating,
+    this.status,
     this.title,
-    this.subscription = false,
-    this.isOnline = true,
-    this.rating = 0,
+    this.type,
+    this.first,
+    this.last,
+    this.number,
+    this.totalElements,
+    this.totalPages,
   });
 
   final String? id;
-  final String? thumbnailURL;
-  final String? title;
-  final bool? subscription;
-  final bool? isOnline;
+  final String? characteristics;
+  final String? image;
+  final String? modality;
   final double? rating;
+  final String? status;
+  final String? title;
+  final String? type;
+  //
+  final String? first;
+  final String? last;
+  final int? number;
+  final int? totalElements;
+  final int? totalPages;
 }

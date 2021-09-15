@@ -60,14 +60,14 @@ class NewsTileWidget extends StatelessWidget {
             ),
           ),
           CustomIconicTextButton(
-            title: (news.subscription!) ? 'Solicitado' : 'No Solicitado',
+            title: news.status!,
             icon: Icons.notifications,
             onTap: () {},
           ),
           Row(
             children: <Widget>[
               CustomIconicTextButton(
-                title: (news.isOnline!) ? 'Online' : 'Offline',
+                title: news.modality!,
                 icon: Icons.radio_button_on_outlined,
                 onTap: () {},
               ),

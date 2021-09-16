@@ -23,12 +23,33 @@ class ChatBot extends StatelessWidget {
                 itemCount: 1,
                 itemBuilder: (BuildContext context, int index) {
                   return Row(
+                    crossAxisAlignment: CrossAxisAlignment.start,
                     children: <Widget>[
                       SizedBox(
                         height: 60,
                         width: 60,
                         child: Image.asset(CustomImages.leonardoChat),
-                      )
+                      ),
+                      Container(
+                        width: _size.width * 0.7,
+                        padding: EdgeInsets.all(Utilities.padding / 2),
+                        margin: EdgeInsets.only(
+                          top: Utilities.padding / 2,
+                          left: Utilities.padding / 3,
+                        ),
+                        decoration: BoxDecoration(
+                          color: Colors.white,
+                          borderRadius: BorderRadius.circular(
+                            Utilities.searchBorderRadius,
+                          ),
+                          border: Border.all(
+                            color: Theme.of(context).primaryColor,
+                          ),
+                        ),
+                        child: const SelectableText(
+                          'This is a long paragraph, which container at least 50 words, all of these word a just for checking the lenght os the container and display style of chatbot.',
+                        ),
+                      ),
                     ],
                   );
                 },

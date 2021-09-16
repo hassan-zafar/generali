@@ -3,6 +3,7 @@ import 'package:generali/providers/home_slider_provider.dart';
 import 'package:generali/screens/chat_bot/chat_bot.dart';
 import 'package:generali/screens/login/login.dart';
 import 'package:generali/screens/main_scren/main_screen.dart';
+import 'package:generali/screens/profile/profile.dart';
 import 'package:generali/utilities/custom_colors.dart';
 import 'package:provider/provider.dart';
 
@@ -42,10 +43,11 @@ class MyApp extends StatelessWidget {
             brightness: Brightness.light,
           ),
         ),
-        home: const MainScreen(),
+        home: const Login(),
         routes: <String, WidgetBuilder>{
           Login.routeName: (_) => const Login(),
           MainScreen.routeName: (_) => const MainScreen(),
+          Profile.routeName: (_) => const Profile(),
           ChatBot.routeName: (_) => const ChatBot(),
         },
       ),

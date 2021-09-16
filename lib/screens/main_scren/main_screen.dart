@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:generali/screens/chat_bot/chat_bot.dart';
 import 'package:generali/screens/main_scren/pages/aprenda/aprenda.dart';
 import 'package:generali/screens/main_scren/pages/regenrate/regenrate.dart';
+import 'package:generali/screens/profile/profile.dart';
 import 'package:generali/screens/widgets/custom_circular_profile_image.dart';
 import 'package:generali/utilities/custom_images.dart';
 import 'package:generali/utilities/utilities.dart';
@@ -57,7 +58,10 @@ class _MainScreenState extends State<MainScreen> {
               color: Theme.of(context).iconTheme.color,
             ),
           ),
-          const CustomCircularProfileImage(imageURL: ''),
+          GestureDetector(
+            onTap: () => Navigator.of(context).pushNamed(Profile.routeName),
+            child: const CustomCircularProfileImage(imageURL: ''),
+          ),
           SizedBox(width: Utilities.padding),
         ],
       ),

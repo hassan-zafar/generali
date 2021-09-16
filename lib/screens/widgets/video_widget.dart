@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:generali/utilities/custom_colors.dart';
 import 'package:video_player/video_player.dart';
 
 class VideoWidget extends StatefulWidget {
@@ -18,7 +17,7 @@ class _VideoAppState extends State<VideoWidget> {
     _controller = VideoPlayerController.network(widget.videoURL)
       ..addListener(() => setState(() {}))
       ..setLooping(true)
-      ..initialize().then((_) => _controller!.play());
+      ..initialize().then((_) => _controller!.pause());
   }
 
   @override

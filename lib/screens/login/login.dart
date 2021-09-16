@@ -53,6 +53,7 @@ class _LoginState extends State<Login> {
             CustomColoredButton(
               onTap: () async {
                 await AuthAPI.auth(dni: '77777777B', password: '77777777B');
+                // ignore: use_build_context_synchronously
                 Navigator.of(context)
                     .pushReplacementNamed(MainScreen.routeName);
               },

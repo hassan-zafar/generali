@@ -1,13 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:generali/providers/home_slider_provider.dart';
 import 'package:generali/screens/chat_bot/chat_bot.dart';
-import 'package:generali/screens/course_detail/course_detail.dart';
 import 'package:generali/screens/login/login.dart';
 import 'package:generali/screens/main_scren/main_screen.dart';
 import 'package:generali/utilities/custom_colors.dart';
 import 'package:provider/provider.dart';
-
-import 'model/course.dart';
 
 Future<void> main() async {
   runApp(MyApp());

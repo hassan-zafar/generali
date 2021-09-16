@@ -5,27 +5,24 @@ import 'package:flutter/rendering.dart';
 import 'package:flutter/widgets.dart';
 import 'package:flutter_rating_bar/flutter_rating_bar.dart';
 import 'package:generali/model/course.dart';
+import 'package:generali/screens/widgets/video_widget.dart';
 import 'package:generali/utilities/custom_colors.dart';
 import 'package:generali/utilities/utilities.dart';
 
 class CourseDetail extends StatelessWidget {
-  const CourseDetail({required this.course, Key? key}) : super(key: key);
+  CourseDetail({required this.course, Key? key}) : super(key: key);
   final Courses course;
+  String url = 'https://www.rmp-streaming.com/media/big-buck-bunny-360p.mp4';
 
   @override
   Widget build(BuildContext context) {
-    final Size _size = MediaQuery.of(context).size;
     return SafeArea(
       child: Scaffold(
         body: Column(
           children: <Widget>[
             AspectRatio(
               aspectRatio: 16 / 9,
-              child: Container(
-                color: Colors.black38,
-                alignment: Alignment.center,
-                child: const Text('Video Player Area'),
-              ),
+              child: VideoWidget(videoURL: url),
             ),
             Expanded(
               child: Stack(

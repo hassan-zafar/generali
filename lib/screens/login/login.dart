@@ -3,6 +3,7 @@ import 'package:generali/api/auth_api.dart';
 import 'package:generali/screens/main_scren/main_screen.dart';
 import 'package:generali/screens/widgets/custom_colored_button.dart';
 import 'package:generali/screens/widgets/custom_textformfield.dart';
+import 'package:generali/screens/widgets/show_loading.dart';
 import 'package:generali/utilities/custom_colors.dart';
 import 'package:generali/utilities/custom_images.dart';
 import 'package:generali/utilities/custom_toast.dart';
@@ -53,17 +54,23 @@ class _LoginState extends State<Login> {
             ),
             CustomColoredButton(
               onTap: () async {
-                // await AuthAPI.auth(dni: '77777777B', password: '77777777B');
-                bool reuslt = await AuthAPI.auth(
-                  dni: dni.text,
-                  password: password.text,
-                );
-                if (reuslt == true) {
-                  if (!mounted) return;
-                  Navigator.of(context)
-                      .pushReplacementNamed(MainScreen.routeName);
+                if (dni.text.isNotEmpty && password.text.isNotEmpty) {
+                  showLoading(context);
+                  final bool reuslt = await AuthAPI.auth(
+                    dni: dni.text,
+                    password: password.text,
+                  );
+                  if (reuslt == true) {
+                    if (!mounted) return;
+                    Navigator.of(context)
+                        .pushReplacementNamed(MainScreen.routeName);
+                  } else {
+                    if (!mounted) return;
+                    Navigator.of(context).pop();
+                    CustomToast.errorToast(message: 'Invalid ID or Password');
+                  }
                 } else {
-                  CustomToast.errorToast(message: 'Invalid ID or Password');
+                  CustomToast.errorToast(message: 'Please fill the fields');
                 }
               },
               child: Text(

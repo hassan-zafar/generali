@@ -5,6 +5,7 @@ import 'package:generali/screens/widgets/custom_colored_button.dart';
 import 'package:generali/screens/widgets/custom_textformfield.dart';
 import 'package:generali/utilities/custom_colors.dart';
 import 'package:generali/utilities/custom_images.dart';
+import 'package:generali/utilities/custom_toast.dart';
 import 'package:generali/utilities/utilities.dart';
 
 class Login extends StatefulWidget {
@@ -52,10 +53,18 @@ class _LoginState extends State<Login> {
             ),
             CustomColoredButton(
               onTap: () async {
-                await AuthAPI.auth(dni: '77777777B', password: '77777777B');
-                // ignore: use_build_context_synchronously
-                Navigator.of(context)
-                    .pushReplacementNamed(MainScreen.routeName);
+                // await AuthAPI.auth(dni: '77777777B', password: '77777777B');
+                bool reuslt = await AuthAPI.auth(
+                  dni: dni.text,
+                  password: password.text,
+                );
+                if (reuslt == true) {
+                  if (!mounted) return;
+                  Navigator.of(context)
+                      .pushReplacementNamed(MainScreen.routeName);
+                } else {
+                  CustomToast.errorToast(message: 'Invalid ID or Password');
+                }
               },
               child: Text(
                 'Enter',

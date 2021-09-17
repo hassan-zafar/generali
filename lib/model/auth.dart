@@ -1,8 +1,4 @@
-// To parse this JSON data, do
-//
-//     final auth = authFromJson(jsonString);
 import 'dart:convert';
-
 class Auth {
   Auth({this.headers, this.sessionId, this.token});
 

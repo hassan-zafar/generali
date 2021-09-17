@@ -10,7 +10,6 @@ class CustomTextFormField extends StatefulWidget {
     required TextEditingController controller,
     this.keyboardType = TextInputType.text,
     this.textInputAction = TextInputAction.next,
-    this.validator,
     this.initialValue,
     this.hint,
     this.readOnly = false,
@@ -24,7 +23,6 @@ class CustomTextFormField extends StatefulWidget {
   final TextEditingController _controller;
   final TextInputType? keyboardType;
   final TextInputAction? textInputAction;
-  final String? Function(String?)? validator;
   final String? initialValue;
   final String title;
   final String? hint;
@@ -74,7 +72,6 @@ class _CustomTextFormFieldState extends State<CustomTextFormField> {
                 ? !isVisible
                 : !isVisible
             : false,
-        validator: (String? value) => widget.validator!(value),
         decoration: InputDecoration(
           labelText: widget.title,
           labelStyle: const TextStyle(color: Colors.white),

@@ -2,15 +2,16 @@ import 'package:shared_preferences/shared_preferences.dart';
 
 class UserLocalData {
   static late SharedPreferences? _preferences;
-  static Future<void> init() async =>
-      _preferences = await SharedPreferences.getInstance();
+  static Future<void> init() async {
+    _preferences = await SharedPreferences.getInstance();
+  }
 
   static void signout() => _preferences!.clear();
 
-  static const String _dni = 'EMAILKEY';
+  static const String _dni = 'DNIKEY';
   static const String _displayNameKey = 'DISPLAYNAMEKEY';
   static const String _imageUrlKey = 'IMAGEURLKEY';
-  static const String _token = 'TOKEN';
+  static const String _token = 'TOKENKEY';
 
   //s
   // Setters

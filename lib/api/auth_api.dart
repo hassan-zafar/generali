@@ -1,9 +1,9 @@
 import 'dart:convert';
-import 'package:generali/model/auth.dart';
-import 'package:generali/services/user_local_data.dart';
-import 'package:generali/utilities/custom_api.dart';
-import 'package:generali/utilities/custom_toast.dart';
 import 'package:http/http.dart' as http;
+import '../../model/auth.dart';
+import '../../services/user_local_data.dart';
+import '../../utilities/custom_api.dart';
+import '../../utilities/custom_toast.dart';
 
 class AuthAPI {
   static Future<bool> auth(

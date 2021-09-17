@@ -4,10 +4,10 @@ import 'package:flutter/painting.dart';
 import 'package:flutter/rendering.dart';
 import 'package:flutter/widgets.dart';
 import 'package:flutter_rating_bar/flutter_rating_bar.dart';
-import 'package:generali/model/course.dart';
-import 'package:generali/screens/widgets/video_widget.dart';
-import 'package:generali/utilities/custom_colors.dart';
-import 'package:generali/utilities/utilities.dart';
+import '../../../model/course.dart';
+import '../../../utilities/custom_colors.dart';
+import '../../../utilities/utilities.dart';
+import '../widgets/video_widget.dart';
 
 class CourseDetail extends StatelessWidget {
   CourseDetail({required this.course, Key? key}) : super(key: key);

@@ -1,8 +1,8 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-import 'package:generali/utilities/custom_colors.dart';
-import 'package:generali/utilities/utilities.dart';
+import '../../utilities/custom_colors.dart';
+import '../../utilities/utilities.dart';
 
 class CustomTextFormField extends StatefulWidget {
   const CustomTextFormField({

@@ -1,8 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/widgets.dart';
-import 'package:generali/model/course.dart';
-import 'package:generali/screens/main_scren/pages/aprenda/courses_tile_widget.dart';
-import 'package:generali/screens/widgets/custom_appbar_background.dart';
+import '../../../../model/course.dart';
+import '../../../widgets/custom_appbar_background.dart';
+import 'courses_tile_widget.dart';
 
 class Aprenda extends StatelessWidget {
   const Aprenda({Key? key}) : super(key: key);

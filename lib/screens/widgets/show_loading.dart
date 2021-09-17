@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 
+// ignore: always_specify_types
 Future showLoading(BuildContext context) {
   return showDialog(
     context: context,

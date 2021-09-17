@@ -1,14 +1,13 @@
 import 'package:flutter/material.dart';
-import 'package:generali/screens/chat_bot/chat_bot.dart';
-import 'package:generali/screens/main_scren/pages/aprenda/aprenda.dart';
-import 'package:generali/screens/main_scren/pages/regenrate/regenrate.dart';
-import 'package:generali/screens/profile/profile.dart';
-import 'package:generali/screens/widgets/custom_circular_profile_image.dart';
-import 'package:generali/utilities/custom_images.dart';
-import 'package:generali/utilities/utilities.dart';
-
+import '../../utilities/custom_images.dart';
+import '../../utilities/utilities.dart';
+import '../chat_bot/chat_bot.dart';
+import '../profile/profile.dart';
+import '../widgets/custom_circular_profile_image.dart';
 import 'bottom_navigation_bar_widget.dart';
+import 'pages/aprenda/aprenda.dart';
 import 'pages/home/home.dart';
+import 'pages/regenrate/regenrate.dart';
 
 class MainScreen extends StatefulWidget {
   const MainScreen({Key? key}) : super(key: key);

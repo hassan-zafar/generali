@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:generali/utilities/custom_colors.dart';
+import '../../utilities/custom_colors.dart';
 
 class BottomNavigationBarWidget extends StatefulWidget {
   const BottomNavigationBarWidget({

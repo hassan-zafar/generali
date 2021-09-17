@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_rating_bar/flutter_rating_bar.dart';
-import 'package:generali/model/news.dart';
-import 'package:generali/utilities/custom_colors.dart';
-import 'package:generali/utilities/custom_images.dart';
-import 'package:generali/utilities/utilities.dart';
+import '../../../../model/news.dart';
+import '../../../../utilities/custom_colors.dart';
+import '../../../../utilities/custom_images.dart';
+import '../../../../utilities/utilities.dart';
 
 class NewsTileWidget extends StatelessWidget {
   const NewsTileWidget({required this.news, Key? key}) : super(key: key);

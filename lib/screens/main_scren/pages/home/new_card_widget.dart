@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
-import 'package:generali/model/news.dart';
-import 'package:generali/utilities/custom_images.dart';
-import 'package:generali/utilities/utilities.dart';
+import '../../../../model/news.dart';
+import '../../../../utilities/custom_images.dart';
+import '../../../../utilities/utilities.dart';
 
 class NewsCardWidget extends StatelessWidget {
   const NewsCardWidget({required this.size, required this.news, Key? key})

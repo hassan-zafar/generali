@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:generali/utilities/custom_colors.dart';
-import 'package:generali/utilities/utilities.dart';
+import '../../../../utilities/custom_colors.dart';
+import '../../../../utilities/utilities.dart';
 
 class HomeCategoiesCardWidget extends StatelessWidget {
   const HomeCategoiesCardWidget({

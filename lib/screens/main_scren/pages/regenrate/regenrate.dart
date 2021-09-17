@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
-import 'package:generali/model/news.dart';
-import 'package:generali/screens/main_scren/pages/regenrate/fake_news.dart';
-import 'package:generali/screens/main_scren/pages/regenrate/news_tile_widget.dart';
-import 'package:generali/screens/widgets/custom_appbar_background.dart';
-import 'package:generali/utilities/utilities.dart';
+import '../../../../model/news.dart';
+import '../../../../utilities/utilities.dart';
+import '../../../widgets/custom_appbar_background.dart';
+import 'fake_news.dart';
+import 'news_tile_widget.dart';
 
 class Regenrate extends StatelessWidget {
   const Regenrate({Key? key}) : super(key: key);

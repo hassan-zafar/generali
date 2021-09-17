@@ -1,13 +1,13 @@
 import 'package:flutter/material.dart';
 import 'package:generali/api/auth_api.dart';
-import 'package:generali/screens/main_scren/main_screen.dart';
-import 'package:generali/screens/widgets/custom_colored_button.dart';
-import 'package:generali/screens/widgets/custom_textformfield.dart';
-import 'package:generali/screens/widgets/show_loading.dart';
-import 'package:generali/utilities/custom_colors.dart';
-import 'package:generali/utilities/custom_images.dart';
-import 'package:generali/utilities/custom_toast.dart';
-import 'package:generali/utilities/utilities.dart';
+import '../../utilities/custom_colors.dart';
+import '../../utilities/custom_images.dart';
+import '../../utilities/custom_toast.dart';
+import '../../utilities/utilities.dart';
+import '../main_scren/main_screen.dart';
+import '../widgets/custom_colored_button.dart';
+import '../widgets/custom_textformfield.dart';
+import '../widgets/show_loading.dart';
 
 class Login extends StatefulWidget {
   const Login({Key? key}) : super(key: key);
@@ -62,8 +62,10 @@ class _LoginState extends State<Login> {
                   );
                   if (reuslt == true) {
                     if (!mounted) return;
-                    Navigator.of(context)
-                        .pushReplacementNamed(MainScreen.routeName);
+                    Navigator.of(context).pushNamedAndRemoveUntil(
+                      MainScreen.routeName,
+                      (Route<dynamic> route) => false,
+                    );
                   } else {
                     if (!mounted) return;
                     Navigator.of(context).pop();

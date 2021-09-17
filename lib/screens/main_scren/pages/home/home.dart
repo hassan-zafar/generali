@@ -2,18 +2,18 @@ import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/painting.dart';
 import 'package:flutter/widgets.dart';
-import 'package:generali/model/course.dart';
-import 'package:generali/providers/home_slider_provider.dart';
-import 'package:generali/screens/main_scren/pages/aprenda/courses_tile_widget.dart';
-import 'package:generali/screens/main_scren/pages/home/new_card_widget.dart';
-import 'package:generali/screens/main_scren/pages/regenrate/fake_news.dart';
-import 'package:generali/screens/widgets/custom_appbar_background.dart';
-import 'package:generali/screens/widgets/search_textformfield.dart';
-import 'package:generali/utilities/custom_images.dart';
-import 'package:generali/utilities/utilities.dart';
 import 'package:provider/provider.dart';
+import '../../../../model/course.dart';
+import '../../../../providers/home_slider_provider.dart';
+import '../../../../utilities/custom_images.dart';
+import '../../../../utilities/utilities.dart';
+import '../../../widgets/custom_appbar_background.dart';
+import '../../../widgets/search_textformfield.dart';
+import '../aprenda/courses_tile_widget.dart';
+import '../regenrate/fake_news.dart';
 import 'custom_circular_slider.dart';
 import 'home_categories_card_widget.dart';
+import 'new_card_widget.dart';
 
 class Home extends StatefulWidget {
   const Home({Key? key}) : super(key: key);
@@ -27,7 +27,6 @@ class _HomeState extends State<Home> {
   Widget build(BuildContext context) {
     final Size _size = MediaQuery.of(context).size;
     return Column(
-      // mainAxisSize: MainAxisSize.max,
       children: <Widget>[
         Flexible(
           child: Stack(

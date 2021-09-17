@@ -3,12 +3,12 @@ import 'package:flutter/material.dart';
 import 'package:flutter/painting.dart';
 import 'package:flutter/rendering.dart';
 import 'package:flutter/widgets.dart';
-import 'package:generali/screens/login/login.dart';
-import 'package:generali/screens/widgets/custom_circular_profile_image.dart';
-import 'package:generali/services/user_local_data.dart';
-import 'package:generali/utilities/custom_colors.dart';
-import 'package:generali/utilities/custom_images.dart';
-import 'package:generali/utilities/utilities.dart';
+import '../../services/user_local_data.dart';
+import '../../utilities/custom_colors.dart';
+import '../../utilities/custom_images.dart';
+import '../../utilities/utilities.dart';
+import '../login/login.dart';
+import '../widgets/custom_circular_profile_image.dart';
 
 class Profile extends StatelessWidget {
   const Profile({Key? key}) : super(key: key);

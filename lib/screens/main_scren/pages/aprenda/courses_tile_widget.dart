@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
-import 'package:generali/model/course.dart';
-import 'package:generali/screens/course_detail/course_detail.dart';
-import 'package:generali/utilities/custom_colors.dart';
-import 'package:generali/utilities/custom_images.dart';
-import 'package:generali/utilities/utilities.dart';
+import '../../../../model/course.dart';
+import '../../../../utilities/custom_colors.dart';
+import '../../../../utilities/custom_images.dart';
+import '../../../../utilities/utilities.dart';
+import '../../../course_detail/course_detail.dart';
 
 class CoursesTileWidget extends StatelessWidget {
   const CoursesTileWidget({

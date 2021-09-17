@@ -1,8 +1,11 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/painting.dart';
+import 'package:flutter/rendering.dart';
 import 'package:flutter/widgets.dart';
+import 'package:generali/screens/login/login.dart';
 import 'package:generali/screens/widgets/custom_circular_profile_image.dart';
+import 'package:generali/services/user_local_data.dart';
 import 'package:generali/utilities/custom_colors.dart';
 import 'package:generali/utilities/custom_images.dart';
 import 'package:generali/utilities/utilities.dart';
@@ -61,35 +64,61 @@ class Profile extends StatelessWidget {
               ),
             ),
             Container(
-                padding: EdgeInsets.all(Utilities.padding / 2),
-                margin: EdgeInsets.symmetric(vertical: Utilities.padding / 3),
-                decoration: BoxDecoration(
-                  color: Colors.white54,
-                  borderRadius: BorderRadius.circular(
-                    Utilities.searchBorderRadius,
-                  ),
+              padding: EdgeInsets.all(Utilities.padding / 2),
+              margin: EdgeInsets.symmetric(vertical: Utilities.padding / 3),
+              decoration: BoxDecoration(
+                color: Colors.white54,
+                borderRadius: BorderRadius.circular(
+                  Utilities.searchBorderRadius,
                 ),
-                child: Column(
-                  children: <Widget>[
-                    _IconicButton(
-                      title:
-                          'https://www.google.com/search?q=paragraph&oq=paragr&aqs=chrome.1.69i57j0i271l3.3753j0j7&sourceid=chrome&ie=UTF-8',
-                      onTap: () {},
-                    ),
-                    const Divider(thickness: 2),
-                    _IconicButton(
-                      title:
-                          'https://www.google.com/search?q=paragraph&oq=paragr&aqs=chrome.1.69i57j0i271l3.3753j0j7&sourceid=chrome&ie=UTF-8',
-                      onTap: () {},
-                    ),
-                    const Divider(thickness: 2),
-                    _IconicButton(
-                      title:
-                          'https://www.google.com/search?q=paragraph&oq=paragr&aqs=chrome.1.69i57j0i271l3.3753j0j7&sourceid=chrome&ie=UTF-8',
-                      onTap: () {},
-                    ),
-                  ],
-                )),
+              ),
+              child: Column(
+                children: <Widget>[
+                  _IconicButton(
+                    title:
+                        'https://www.google.com/search?q=paragraph&oq=paragr&aqs=chrome.1.69i57j0i271l3.3753j0j7&sourceid=chrome&ie=UTF-8',
+                    onTap: () {},
+                  ),
+                  const Divider(thickness: 2),
+                  _IconicButton(
+                    title:
+                        'https://www.google.com/search?q=paragraph&oq=paragr&aqs=chrome.1.69i57j0i271l3.3753j0j7&sourceid=chrome&ie=UTF-8',
+                    onTap: () {},
+                  ),
+                  const Divider(thickness: 2),
+                  _IconicButton(
+                    title:
+                        'https://www.google.com/search?q=paragraph&oq=paragr&aqs=chrome.1.69i57j0i271l3.3753j0j7&sourceid=chrome&ie=UTF-8',
+                    onTap: () {},
+                  ),
+                ],
+              ),
+            ),
+            const Spacer(),
+            GestureDetector(
+              onTap: () async {
+                UserLocalData.signout();
+                Navigator.of(context).pushNamedAndRemoveUntil(
+                  Login.routeName,
+                  (Route<dynamic> route) => false,
+                );
+              },
+              child: Container(
+                width: double.infinity,
+                height: 50,
+                alignment: Alignment.center,
+                decoration: BoxDecoration(
+                  borderRadius:
+                      BorderRadius.circular(Utilities.searchBorderRadius),
+                  color: Colors.white,
+                ),
+                child: const Text(
+                  'Logout',
+                  style: TextStyle(fontWeight: FontWeight.bold, fontSize: 20),
+                ),
+              ),
+            ),
+            const SizedBox(height: 20),
           ],
         ),
       ),
@@ -106,7 +135,7 @@ class Profile extends StatelessWidget {
             crossAxisAlignment: CrossAxisAlignment.start,
             children: const <Widget>[
               Text(
-                'John Doe m m m m ',
+                'John Doe',
                 overflow: TextOverflow.ellipsis,
                 style: TextStyle(
                   color: Colors.white,

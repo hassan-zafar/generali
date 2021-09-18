@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
-import '../../../../model/news.dart';
+import '../../../../model/news_2no.dart';
 import '../../../../utilities/custom_images.dart';
 import '../../../../utilities/utilities.dart';
 
@@ -8,7 +8,7 @@ class NewsCardWidget extends StatelessWidget {
   const NewsCardWidget({required this.size, required this.news, Key? key})
       : super(key: key);
   final Size size;
-  final News news;
+  final News2No news;
 
   @override
   Widget build(BuildContext context) {

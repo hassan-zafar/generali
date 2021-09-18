@@ -1,8 +1,8 @@
-import 'package:generali/model/news.dart';
+import 'package:generali/model/news_2no.dart';
 
-List<News> fackNewsData() {
-  return <News>[
-    News(
+List<News2No> fackNewsData() {
+  return <News2No>[
+    News2No(
       id: '111',
       rating: 2.2,
       image: '',
@@ -17,7 +17,7 @@ List<News> fackNewsData() {
       totalElements: 2,
       totalPages: 3,
     ),
-    News(
+    News2No(
       id: '222',
       rating: 3.2,
       image: '',
@@ -32,7 +32,7 @@ List<News> fackNewsData() {
       totalElements: 2,
       totalPages: 3,
     ),
-    News(
+    News2No(
       id: '333',
       rating: 4,
       image: '',
@@ -47,7 +47,7 @@ List<News> fackNewsData() {
       totalElements: 2,
       totalPages: 3,
     ),
-    News(
+    News2No(
       id: '4444',
       rating: 1,
       image: '',

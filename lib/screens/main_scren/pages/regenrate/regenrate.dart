@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
-import '../../../../model/news.dart';
+import '../../../../model/news_2no.dart';
 import '../../../../utilities/utilities.dart';
 import '../../../widgets/custom_appbar_background.dart';
 import 'fake_news.dart';
@@ -19,7 +19,7 @@ class Regenrate extends StatelessWidget {
           child: ListView.builder(
             itemCount: 4,
             itemBuilder: (BuildContext context, int index) {
-              final List<News> _list = fackNewsData();
+              final List<News2No> _list = fackNewsData();
               return Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: <Widget>[

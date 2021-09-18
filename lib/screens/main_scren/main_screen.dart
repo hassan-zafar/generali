@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:generali/api/news_api.dart';
 import '../../utilities/custom_images.dart';
 import '../../utilities/utilities.dart';
 import '../chat_bot/chat_bot.dart';
@@ -18,6 +19,16 @@ class MainScreen extends StatefulWidget {
 
 class _MainScreenState extends State<MainScreen> {
   int _selectedIndex = 0;
+  Future<void> _init() async {
+    await NewsAPI().getNews();
+  }
+
+  @override
+  void initState() {
+    _init();
+    super.initState();
+  }
+
   void _onItemTapped(int index) {
     setState(() {
       _selectedIndex = index;

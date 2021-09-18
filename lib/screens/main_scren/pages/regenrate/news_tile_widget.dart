@@ -1,13 +1,13 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_rating_bar/flutter_rating_bar.dart';
-import '../../../../model/news.dart';
+import '../../../../model/news_2no.dart';
 import '../../../../utilities/custom_colors.dart';
 import '../../../../utilities/custom_images.dart';
 import '../../../../utilities/utilities.dart';
 
 class NewsTileWidget extends StatelessWidget {
   const NewsTileWidget({required this.news, Key? key}) : super(key: key);
-  final News news;
+  final News2No news;
 
   @override
   Widget build(BuildContext context) {

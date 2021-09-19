@@ -26,52 +26,52 @@ class _HomeState extends State<Home> {
   @override
   Widget build(BuildContext context) {
     final Size _size = MediaQuery.of(context).size;
-    return Column(
+    return ListView(
+      physics: const NeverScrollableScrollPhysics(),
       children: <Widget>[
-        Flexible(
-          child: Stack(
-            children: <Widget>[
-              const CustomAppBarBackbround(),
-              SearchTextFormField(
-                search: _search,
-                onTap: () {
-                  // TODO: on search
-                },
-              ),
-              Consumer<HomeSliderProvider>(
-                builder: (
-                  BuildContext context,
-                  HomeSliderProvider provider,
-                  Widget? child,
-                ) =>
-                    Positioned(
-                  top: 80,
-                  left: Utilities.padding,
-                  right: 0,
-                  child: CarouselSlider(
-                    // ignore: always_specify_types
-                    items: [
-                      _firstcategory(provider),
-                      _secondCategory(provider),
-                      _thirdCategory(provider)
-                    ].map((HomeCategoiesCardWidget card) => card).toList(),
-                    options: CarouselOptions(
-                      height: 190.0,
-                      disableCenter: true,
-                      enlargeCenterPage: true,
-                      enableInfiniteScroll: false,
-                    ),
+        Column(
+          children: <Widget>[
+            const CustomAppBarBackbround(),
+            SearchTextFormField(
+              search: _search,
+              onTap: () {
+                // TODO: on search
+              },
+            ),
+            Consumer<HomeSliderProvider>(
+              builder: (
+                BuildContext context,
+                HomeSliderProvider provider,
+                Widget? child,
+              ) =>
+                  Positioned(
+                top: 80,
+                left: Utilities.padding,
+                right: 0,
+                child: CarouselSlider(
+                  // ignore: always_specify_types
+                  items: [
+                    _firstcategory(provider),
+                    _secondCategory(provider),
+                    _thirdCategory(provider)
+                  ].map((HomeCategoiesCardWidget card) => card).toList(),
+                  options: CarouselOptions(
+                    height: 190.0,
+                    disableCenter: true,
+                    enlargeCenterPage: true,
+                    enableInfiniteScroll: false,
                   ),
                 ),
               ),
-            ],
-          ),
+            ),
+          ],
         ),
         Expanded(
           child: Padding(
             padding: EdgeInsets.only(left: Utilities.padding),
             child: ListView(
               shrinkWrap: true,
+              physics: const BouncingScrollPhysics(),
               children: <Widget>[
                 _TitalAndActionButtonWidget(
                   title: 'News',
@@ -95,23 +95,21 @@ class _HomeState extends State<Home> {
                   title: 'Watching Courses',
                   onPress: () {},
                 ),
-                Expanded(
-                  child: ListView.builder(
-                    shrinkWrap: true,
-                    padding: EdgeInsets.zero,
-                    itemCount: 1000,
-                    itemBuilder: (BuildContext context, int index) =>
-                        CoursesTileWidget(
-                      showFavIcon: false,
-                      course: Courses(
-                        id: index.toString(),
-                        title: 'Course No: $index',
-                        detail: 'This is the detail of all the courses',
-                        viewed: double.parse(index.toString()),
-                        thumbnailURL: '',
-                        // ignore: avoid_bool_literals_in_conditional_expressions
-                        isFav: (index % 3 == 0) ? true : false,
-                      ),
+                ListView.builder(
+                  shrinkWrap: true,
+                  padding: EdgeInsets.zero,
+                  itemCount: 1000,
+                  itemBuilder: (BuildContext context, int index) =>
+                      CoursesTileWidget(
+                    showFavIcon: false,
+                    course: Courses(
+                      id: index.toString(),
+                      title: 'Course No: $index',
+                      detail: 'This is the detail of all the courses',
+                      viewed: double.parse(index.toString()),
+                      thumbnailURL: '',
+                      // ignore: avoid_bool_literals_in_conditional_expressions
+                      isFav: (index % 3 == 0) ? true : false,
                     ),
                   ),
                 ),

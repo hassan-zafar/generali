@@ -1,3 +1,5 @@
+import 'dart:collection';
+
 class News {
   News({
     this.totalPages,
@@ -16,18 +18,27 @@ class News {
 
   // ignore: sort_constructors_first
   factory News.fromJson(Map<String, dynamic> json) {
-    final List<dynamic> _list = List<dynamic>.from(json['content'] as List);
-    print(_list);
-    List<Content> con = [];
-    List<Map<String, dynamic>> mapp = [];
-    _list.forEach((e) => e);
+    String jsnStr =
+        json['content'].toString().replaceAll('[', '').replaceAll("]", "");
+    print(json['content'].runtimeType);
+
+    print(json['content'].length);
+    List<Content>? contentTemp = [];
+
+    json['content'].forEach((e) {
+      contentTemp.add(Content.fromJson(e));
+    });
+    // print(_list);
+    // List<Content> con = [];
+    // List<Map<String, dynamic>> mapp = [];
+
     return News(
         totalPages: int.parse(json['totalPages'].toString()),
         totalElements: int.parse(json['totalElements'].toString()),
         number: int.parse(json['number'].toString()),
         first: bool.fromEnvironment(json['first'].toString()),
         last: bool.fromEnvironment(json['last'].toString()),
-        content: []
+        content: contentTemp
         // List<Content>.from(
         //   json['content'],
         // ),
@@ -74,7 +85,10 @@ class Content {
   String? subtopic;
 
   // ignore: sort_constructors_first
-  factory Content.fromJson(Map<String, dynamic> json) => Content(
+  factory Content.fromJson(
+          // Map<String, dynamic>
+          dynamic json) =>
+      Content(
         modality: json['modality'] == null ? '' : json['modality'].toString(),
         type: json['type'] == null ? '' : json['type'].toString(),
         id: json['id'] == null ? -1 : int.parse(json['id'].toString()),

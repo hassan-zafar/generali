@@ -26,45 +26,47 @@ class _HomeState extends State<Home> {
   @override
   Widget build(BuildContext context) {
     final Size _size = MediaQuery.of(context).size;
-    return ListView(
-      physics: const NeverScrollableScrollPhysics(),
+    return Column(
+      // physics: const NeverScrollableScrollPhysics(),
       children: <Widget>[
-        Column(
-          children: <Widget>[
-            const CustomAppBarBackbround(),
-            SearchTextFormField(
-              search: _search,
-              onTap: () {
-                // TODO: on search
-              },
-            ),
-            Consumer<HomeSliderProvider>(
-              builder: (
-                BuildContext context,
-                HomeSliderProvider provider,
-                Widget? child,
-              ) =>
-                  Positioned(
-                top: 80,
-                left: Utilities.padding,
-                right: 0,
-                child: CarouselSlider(
-                  // ignore: always_specify_types
-                  items: [
-                    _firstcategory(provider),
-                    _secondCategory(provider),
-                    _thirdCategory(provider)
-                  ].map((HomeCategoiesCardWidget card) => card).toList(),
-                  options: CarouselOptions(
-                    height: 190.0,
-                    disableCenter: true,
-                    enlargeCenterPage: true,
-                    enableInfiniteScroll: false,
+        Expanded(
+          child: Stack(
+            children: <Widget>[
+              const CustomAppBarBackbround(),
+              SearchTextFormField(
+                search: _search,
+                onTap: () {
+                  // TODO: on search
+                },
+              ),
+              Consumer<HomeSliderProvider>(
+                builder: (
+                  BuildContext context,
+                  HomeSliderProvider provider,
+                  Widget? child,
+                ) =>
+                    Positioned(
+                  top: 80,
+                  left: Utilities.padding,
+                  right: 0,
+                  child: CarouselSlider(
+                    // ignore: always_specify_types
+                    items: [
+                      _firstcategory(provider),
+                      _secondCategory(provider),
+                      _thirdCategory(provider)
+                    ].map((HomeCategoiesCardWidget card) => card).toList(),
+                    options: CarouselOptions(
+                      height: 190.0,
+                      disableCenter: true,
+                      enlargeCenterPage: true,
+                      enableInfiniteScroll: false,
+                    ),
                   ),
                 ),
               ),
-            ),
-          ],
+            ],
+          ),
         ),
         Expanded(
           child: Padding(
